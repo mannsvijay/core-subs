@@ -5,7 +5,7 @@ using namespace std;
 // Base class: Vehicle
 // This class has the common properties that all vehicles share.
 class Vehicle {
-protected:
+protected: //
     string name;
     string model;
     int noOfTyres;
@@ -54,14 +54,8 @@ public:
     }
 
     // Parameterized constructor initializes both Vehicle and Car data.
-    Car(const string& _name,
-        const string& _model,
-        int _noOfTyres,
-        int _noOfDoors,
-        const string& _transmissionType)
-        : Vehicle(_name, _model, _noOfTyres),
-          noOfDoors(_noOfDoors),
-          transmissionType(_transmissionType) {
+    Car(const string& _name, const string& _model, int _noOfTyres, int _noOfDoors, const string& _transmissionType)
+        : Vehicle(_name, _model, _noOfTyres), noOfDoors(_noOfDoors), transmissionType(_transmissionType) {
         cout << "Car parameterized constructor called" << endl;
     }
 
