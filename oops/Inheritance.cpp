@@ -179,9 +179,7 @@ public:
 // This shows how a class can inherit from more than one base class.
 class AmphibiousVehicle : public Car, public Boat {
 public:
-    AmphibiousVehicle()
-        : Car("AmphibiousCar", "AmphiModel", 4, 2, "Automatic"),
-          Boat("AmphibiousBoat", "AmphiModel", "Planing") {
+    AmphibiousVehicle() : Car("AmphibiousCar", "AmphiModel", 4, 2, "Automatic"), Boat("AmphibiousBoat", "AmphiModel", "Planing") {
         cout << "AmphibiousVehicle constructor called" << endl;
     }
 
