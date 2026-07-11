@@ -12,7 +12,36 @@ using namespace std;
 // - The same function name (like draw()) can behave differently.
 // - C++ decides which version to use automatically.
 //
-// This is possible because we use the keyword virtual.
+// Why is this possible?
+// Because we use the keyword virtual.
+//
+// What does virtual do?
+// ----------------------
+// It tells C++:
+// "If this function is overridden in a child class,
+//  then when I call it through a base-class pointer,
+//  use the child version automatically."
+//
+// Without virtual:
+// - C++ uses static binding.
+// - It calls the function based on the pointer type.
+// - So a Shape* pointer will call Shape's version.
+//
+// With virtual:
+// - C++ uses dynamic binding.
+// - It calls the function based on the real object type.
+// - So a Shape* pointer pointing to a Circle will call Circle's version.
+//
+// Very simple example:
+// Imagine a parent class called Animal and a child class called Dog.
+// Both have a function called speak().
+// If you call speak() through an Animal pointer, then:
+// - without virtual -> Animal's speak() runs
+// - with virtual -> Dog's speak() runs
+//
+// Behind the scenes, virtual functions use something called a vtable
+// (virtual table). But for now, you only need to know this:
+// virtual makes function calls behave in a smarter, more flexible way.
 // =========================================================
 
 class Shape
@@ -64,6 +93,35 @@ void drawShape(Shape *shape)
 int main()
 {
     cout << "=== Runtime Polymorphism Demo ===" << endl;
+
+    // A small comparison to show what virtual changes.
+    // This is a non-virtual example.
+    class Animal
+    {
+    public:
+        void speak()
+        {
+            cout << "Animal makes a sound" << endl;
+        }
+    };
+
+    class Dog : public Animal
+    {
+    public:
+        void speak()
+        {
+            cout << "Dog barks" << endl;
+        }
+    };
+
+    cout << "--- Without virtual ---" << endl;
+    Animal *animal = new Dog();
+    animal->speak();
+    // Even though the real object is a Dog, this calls Animal's speak()
+    // because speak() is NOT virtual here.
+    delete animal;
+
+    cout << endl;
 
     // 1) Normal object of the base class
     Shape baseShape;
