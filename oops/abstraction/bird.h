@@ -16,6 +16,8 @@
 // In OOP, abstraction helps us create a simple interface
 // for a concept and let different classes implement it in their own way.
 //
+//
+//
 // Here, Bird is an abstract class.
 // It defines what a bird should be able to do:
 // - eat()
