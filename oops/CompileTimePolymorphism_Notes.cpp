@@ -23,7 +23,6 @@ the program runs.
 Achieved through:
 1. FUNCTION OVERLOADING
 2. OPERATOR OVERLOADING
-3. TEMPLATE METAPROGRAMMING (not covered here)
 
 ================================================================================
                           1. FUNCTION OVERLOADING
